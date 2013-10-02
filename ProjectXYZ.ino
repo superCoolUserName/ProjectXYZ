@@ -81,7 +81,7 @@ void loop() {
       val = digitalRead(buttonPin);
         if(val == HIGH)
         {
-            if(sequence == 10) // if sequence is at 10 already, make it 1 again
+            if(sequence == 11) // if sequence is at 11 already, make it 1 again
             {
                sequence = 1;
             } else
@@ -141,6 +141,9 @@ void loop() {
                      colorGreen();
                      break;
                      
+                     case 11:
+                     colorPink();
+                     break;
                  }
 }
 
@@ -196,6 +199,20 @@ void colorBlue(){
   Serial.print("Blue");
   Serial.println("");
 }
+void colorPink(){
+ analogWrite(redPin, 255);
+  analogWrite(greenPin, 25);
+  analogWrite(bluePin, 45);
+  lcd.clear();
+  lcd.setCursor(1, 0);
+  lcd.print("Preset:");
+  lcd.setCursor(1, 1);
+  lcd.print("Powerful Pink");
+  delay(200);
+  Serial.print("Power Pink");
+  Serial.println("");
+  
+}  
 void colorViolet(){
   analogWrite(redPin, 255);
   analogWrite(greenPin, 0);
